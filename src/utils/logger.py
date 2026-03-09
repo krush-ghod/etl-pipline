@@ -44,7 +44,7 @@ def _configure_root_logger() -> None:
 
     handler = logging.StreamHandler(sys.stdout)
     formatter = jsonlogger.JsonFormatter(
-        fmt="%(timestamp)s %(level)s %(name)s %(stage)s %(message)s",
+        fmt="%(asctime)s %(levelname)s %(name)s %(message)s",
         rename_fields={
             "levelname": "level",
             "asctime": "timestamp",

@@ -27,14 +27,14 @@ class Loader:
         mongo_uri: str | None = None,
         db_name: str | None = None,
         collection_name: str | None = None,
-        upsert_key: str = "_id",
+        upsert_key: str | None = None,
         ordered: bool = False,
         client: MongoClient | None = None,
     ) -> None:
         self.mongo_uri = mongo_uri or config.MONGO_URI
         self.db_name = db_name or config.MONGO_DB
         self.collection_name = collection_name or config.MONGO_COLLECTION
-        self.upsert_key = upsert_key
+        self.upsert_key = upsert_key or config.UPSERT_KEY
         self.ordered = ordered
 
         self._client = client or MongoClient(self.mongo_uri)
